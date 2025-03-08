@@ -1,5 +1,6 @@
 package sieve;
 
+// trove-2.1.0.jar
 import gnu.trove.TIntArrayList;
 
 import java.math.BigDecimal;
@@ -75,10 +76,13 @@ public class SieveMain {
                 for (int i = from; i != to; i++) {
                     int x = list.get(i);
                     if (flag == 1) {
+                        // flag为1，则研究的是素数分布
                         if (x % p != 0) {
                             result.add(x);
                         }
                     } else {
+                        // flag为2，则研究的是哥德巴赫猜想的解
+                        // 这里稍加修改，可以用于研究孪生素数
                         if (x % p != 0 && (N - x) % p != 0) {
                             result.add(x);
                         }
@@ -100,12 +104,15 @@ public class SieveMain {
         return totalResult;
     }
 
+    // 线程池
     public static final ExecutorService threadPool = Executors.newFixedThreadPool(THREADS);
 
+    // 判断素性
     public static boolean isPrime(int n) {
         return n > 0 && BigInteger.valueOf(n).isProbablePrime(100);
     }
 
+    // 除法，向上取整
     public static int ceilDiv(int x, int y) {
         return BigDecimal.valueOf(x).divide(BigDecimal.valueOf(y), 0, RoundingMode.CEILING).intValue();
     }
