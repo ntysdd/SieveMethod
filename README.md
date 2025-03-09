@@ -52,3 +52,17 @@ SieveMain.java这个程序，把 \([2, N]\) 的整数用各个素数都筛一遍
 相对误差：
 ![](f1_relerr2.png)
 
+
+以下是<code>flag == 2</code>时的图形
+
+![](f2_filtered.png)
+
+相对误差：
+![](f2_relerr.png)
+
+实际每次筛后剩下的数量，对比预测的数量：
+![](f2_remain.png)
+
+相对误差：
+![](f2_relerr2.png)
+
